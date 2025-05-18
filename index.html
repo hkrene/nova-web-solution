@@ -23,6 +23,9 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
     
     <style>
         /* Critical CSS */
@@ -78,21 +81,21 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#accueil" class="text-gray-700 hover:text-indigo-600 font-medium">Accueil</a>
-                    <a href="#services" class="text-gray-700 hover:text-indigo-600 font-medium">Services</a>
-                    <a href="#tarifs" class="text-gray-700 hover:text-indigo-600 font-medium">Tarifs</a>
-                    <a href="#portfolio" class="text-gray-700 hover:text-indigo-600 font-medium">Portfolio</a>
-                    <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300">Contact</a>
+                    <a href="#accueil" data-i18n="home" class="text-gray-700 hover:text-indigo-600 font-medium">Accueil</a>
+                    <a href="#services" data-i18n="services"  class="text-gray-700 hover:text-indigo-600 font-medium">Services</a>
+                    <a href="#tarifs" data-i18n="tarifs"  class="text-gray-700 hover:text-indigo-600 font-medium">Tarifs</a>
+                    <a href="#portfolio" data-i18n="portfolio"  class="text-gray-700 hover:text-indigo-600 font-medium">Portfolio</a>
+                    <a href="#contact" data-i18n="contact"  class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300">Contact</a>
                 </div>
             </div>
             
             <!-- Mobile Menu -->
             <div class="md:hidden hidden mt-4" id="mobile-menu">
-                <a href="#accueil" class="block py-2 text-gray-700 hover:text-indigo-600">Accueil</a>
-                <a href="#services" class="block py-2 text-gray-700 hover:text-indigo-600">Services</a>
-                <a href="#tarifs" class="block py-2 text-gray-700 hover:text-indigo-600">Tarifs</a>
-                <a href="#portfolio" class="block py-2 text-gray-700 hover:text-indigo-600">Portfolio</a>
-                <a href="#contact" class="block mt-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-center hover:bg-indigo-700">Contact</a>
+                <a href="#accueil" data-i18n="home" class="block py-2 text-gray-700 hover:text-indigo-600">Accueil</a>
+                <a href="#services" data-i18n="services"  class="block py-2 text-gray-700 hover:text-indigo-600">Services</a>
+                <a href="#tarifs" data-i18n="tarifs"  class="block py-2 text-gray-700 hover:text-indigo-600">Tarifs</a>
+                <a href="#portfolio" data-i18n="portfolio"  class="block py-2 text-gray-700 hover:text-indigo-600">Portfolio</a>
+                <a href="#contact" data-i18n="contact"  class="block mt-2 bg-indigo-600 text-white px-4 py-2 rounded-lg text-center hover:bg-indigo-700">Contact</a>
             </div>
         </div>
     </nav>
@@ -110,17 +113,17 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <h1 data-i18n="hero_t"  class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                         Réussissez votre <span class="text-yellow-300">transformation digitale</span>
                     </h1>
-                    <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    <p data-i18n="hero_p"  class="text-xl md:text-2xl mb-8 opacity-90">
                         Des sites web professionnels conçus sur mesure pour propulser votre entreprise en ligne.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 text-center btn-primary">
+                        <a href="#contact" data-i18n="hero_b1"  class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 text-center btn-primary">
                             Demander un devis
                         </a>
-                        <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-indigo-600 transition duration-300 text-center">
+                        <a href="#services" data-i18n="hero_b2"  class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-indigo-600 transition duration-300 text-center">
                             Nos services
                         </a>
                     </div>
@@ -136,7 +139,7 @@
     <section id="services" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Solutions Web</h2>
+                <h2 data-i18n="ft"  class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Solutions Web</h2>
                 <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
             </div>
             
@@ -145,8 +148,8 @@
                     <div class="text-indigo-600 mb-4">
                         <i class="fas fa-laptop-code text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Conception de Site Web</h3>
-                    <p class="text-gray-600">
+                    <h3 data-i18n="ft2"  class="text-xl font-bold mb-3">Conception de Site Web</h3>
+                    <p data-i18n="fp1"  class="text-gray-600">
                         Création de sites web modernes, responsives et optimisés pour tous les appareils.
                     </p>
                 </div>
@@ -155,9 +158,9 @@
                     <div class="text-purple-600 mb-4">
                         <i class="fas fa-rocket text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Livraison Rapide</h3>
-                    <p class="text-gray-600">
-                        Sites web livrés en seulement 7 jours, sans compromis sur la qualité.
+                    <h3 data-i18n="ft3"  class="text-xl font-bold mb-3">Livraison Rapide</h3>
+                    <p data-i18n="fp2" class="text-gray-600">
+                        Sites web livrés a partir de 3 jours, sans compromis sur la qualité.
                     </p>
                 </div>
                 
@@ -165,8 +168,8 @@
                     <div class="text-blue-600 mb-4">
                         <i class="fas fa-wallet text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Tarifs Accessibles</h3>
-                    <p class="text-gray-600">
+                    <h3 data-i18n="ft4"  class="text-xl font-bold mb-3">Tarifs Accessibles</h3>
+                    <p data-i18n="fp3" class="text-gray-600">
                         Des solutions professionnelles à partir de $250 seulement.
                     </p>
                 </div>
@@ -178,8 +181,8 @@
     <section id="tarifs" class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Tarifs</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <h2 data-i18n="pt" class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Tarifs</h2>
+                <p data-i18n="pp1" class="text-xl text-gray-600 max-w-2xl mx-auto">
                     Des solutions adaptées à tous les budgets pour votre présence en ligne
                 </p>
                 <div class="w-20 h-1 bg-indigo-600 mx-auto mt-4"></div>
@@ -189,8 +192,8 @@
                 <!-- Basic Plan -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:border-indigo-500 transition duration-300">
                     <div class="px-8 py-6 border-b border-gray-200">
-                        <h3 class="text-2xl font-bold text-gray-800">Starter</h3>
-                        <p class="text-gray-600 mt-2">Parfait pour les petites entreprises</p>
+                        <h3 data-i18n="pt2" class="text-2xl font-bold text-gray-800">Starter</h3>
+                        <p data-i18n="pp2" class="text-gray-600 mt-2">Parfait pour les petites entreprises</p>
                     </div>
                     <div class="px-8 py-6">
                         <div class="flex items-baseline">
@@ -223,12 +226,12 @@
                 
                 <!-- Popular Plan -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-indigo-500 transform scale-105 z-10">
-                    <div class="bg-indigo-500 text-white px-4 py-2 text-center font-medium">
+                    <div data-i18n="pp3" class="bg-indigo-500 text-white px-4 py-2 text-center font-medium">
                         Le plus populaire
                     </div>
                     <div class="px-8 py-6 border-b border-gray-200">
-                        <h3 class="text-2xl font-bold text-gray-800">Business</h3>
-                        <p class="text-gray-600 mt-2">Idéal pour les entreprises en croissance</p>
+                        <h3 data-i18n="pt3" class="text-2xl font-bold text-gray-800">Business</h3>
+                        <p data-i18n="pp4" class="text-gray-600 mt-2">Idéal pour les entreprises en croissance</p>
                     </div>
                     <div class="px-8 py-6">
                         <div class="flex items-baseline">
@@ -262,8 +265,8 @@
                 <!-- Premium Plan -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:border-purple-500 transition duration-300">
                     <div class="px-8 py-6 border-b border-gray-200">
-                        <h3 class="text-2xl font-bold text-gray-800">Premium</h3>
-                        <p class="text-gray-600 mt-2">Solution complète sur mesure</p>
+                        <h3 data-i18n="pt4" class="text-2xl font-bold text-gray-800">Premium</h3>
+                        <p data-i18n="pp5" class="text-gray-600 mt-2">Solution complète sur mesure</p>
                     </div>
                     <div class="px-8 py-6">
                         <div class="flex items-baseline">
@@ -296,7 +299,7 @@
             </div>
             
             <div class="mt-12 text-center">
-                <p class="text-gray-600">
+                <p data-i18n="pp6" class="text-gray-600">
                     Besoin d'une solution personnalisée? <a href="#contact" class="text-indigo-600 hover:underline">Contactez-nous</a> pour un devis gratuit.
                 </p>
             </div>
@@ -581,7 +584,7 @@
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                <p data-i18n="copy" class="text-gray-400 text-sm mb-4 md:mb-0">
                     © 2025 NovaWeb Solutions. Tous droits réservés.
                 </p>
                 <div class="flex space-x-6">
@@ -594,115 +597,156 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300" id="back-to-top" title="Back to top">
+    <a href="#" class="fixed bottom-6 w-12 h-12 text-center right-6 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300" id="back-to-top" title="Back to top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <!-- Scripts -->
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
 
-        // Back to top button
-        document.getElementById('back-to-top').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        });
+        // Fonctions globales
 
-        // Show/hide back to top button
-        window.addEventListener('scroll', function() {
-            const backToTopButton = document.getElementById('back-to-top');
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
-            }
-        });
+        function changeLanguage(lng) {
+            i18next.changeLanguage(lng);
+        }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+        function updateLanguageSelector() {
+            document.querySelectorAll('select[onchange="changeLanguage(this.value)"]').forEach(select => {
+                select.value = i18next.language;
+            });
+        }
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerHTML = i18next.t(key);
+            });
+        }
+         
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
             });
         });
 
 
-        // language configuration 
-
-
-        const resources = {
-            fr: {
-                translation: {
-                title: "Bienvenue",
-                subtitle: "Découvre notre produit révolutionnaire.",
-                cta: "Commencer maintenant",
-                emailPlaceholder: "Entrez votre e-mail"
+            // Configuration i18next
+            const resources = {
+                fr: {
+                    translation: {
+                        home: "Accueil",
+                        services: "Services",
+                        tarifs: "Tarifs",
+                        portfolio: "Portfolio",
+                        contact: "Contact",
+                        hero_t: "Réussissez votre <span class='text-yellow-300'>transformation digitale</span>",
+                        hero_p: "Des sites web professionnels conçus sur mesure pour propulser votre entreprise en ligne.",
+                        hero_b1: "Demander un devis",
+                        hero_b2: "Nos services",
+                        ft: "Nos Solutions Web",
+                        ft2: "Conception de Site Web",
+                        fp1: "Création de sites web modernes, responsives et optimisés pour tous les appareils.",
+                        ft3: "Livraison Rapide",
+                        fp2: "Sites web livrés a partir de 3 jours, sans compromis sur la qualité.",
+                        ft4: "Tarifs Accessibles",
+                        fp3: "Des solutions professionnelles à partir de $250 seulement.",
+                        pt: "Nos Tarifs",
+                        pp1: "Des solutions adaptées à tous les budgets pour votre présence en ligne",
+                        pt2: "Starter",
+                        pp2: "Parfait pour les petites entreprises",
+                        pp3: "Le plus populaire",
+                        pt3: "Business",
+                        pp4: "Idéal pour les entreprises en croissance",
+                        pt4: "Premium",
+                        pp5: "Solution complète sur mesure",
+                        pp6: "Besoin d'une solution personnalisée? Contactez-nous pour un devis gratuit.",
+                        copy: "© 2025 NovaWeb Solutions. Tous droits réservés."
+                    }
+                },
+                en: {
+                    translation: {
+                        home: "Home",
+                        services: "Services",
+                        tarifs: "Pricing",
+                        portfolio: "Portfolio",
+                        contact: "Contact",
+                        hero_t: "Achieve your <span class='text-yellow-300'>digital transformation</span>",
+                        hero_p: "Professionally designed websites to boost your business online.",
+                        hero_b1: "Get a quote",
+                        hero_b2: "Our services",
+                        ft: "Our Web Solutions",
+                        ft2: "Web Design",
+                        fp1: "Creation of modern, responsive websites optimized for all devices.",
+                        ft3: "Fast Delivery",
+                        fp2: "Websites delivered in as little as 3 days, without compromising quality.",
+                        ft4: "Affordable Prices",
+                        fp3: "Professional solutions starting at just $250.",
+                        pt: "Our Pricing",
+                        pp1: "Solutions adapted to all budgets for your online presence",
+                        pt2: "Starter",
+                        pp2: "Perfect for small businesses",
+                        pp3: "Most Popular",
+                        pt3: "Business",
+                        pp4: "Ideal for growing businesses",
+                        pt4: "Premium",
+                        pp5: "Complete custom solution",
+                        pp6: "Need a custom solution? Contact us for a free quote.",
+                        copy: "© 2025 NovaWeb Solutions. All rights reserved."
+                    }
+                },
+                es: {
+                    translation: {
+                        home: "Inicio",
+                        services: "Servicios",
+                        tarifs: "Precios",
+                        portfolio: "Portafolio",
+                        contact: "Contacto",
+                        hero_t: "Logra tu <span class='text-yellow-300'>transformación digital</span>",
+                        hero_p: "Sitios web profesionales diseñados para impulsar tu negocio en línea.",
+                        hero_b1: "Obtener presupuesto",
+                        hero_b2: "Nuestros servicios",
+                        ft: "Nuestras Soluciones Web",
+                        ft2: "Diseño Web",
+                        fp1: "Creación de sitios web modernos, responsivos y optimizados para todos los dispositivos.",
+                        ft3: "Entrega Rápida",
+                        fp2: "Sitios web entregados en tan solo 3 días, sin comprometer la calidad.",
+                        ft4: "Precios Accesibles",
+                        fp3: "Soluciones profesionales desde $250.",
+                        pt: "Nuestros Precios",
+                        pp1: "Soluciones adaptadas a todos los presupuestos para tu presencia en línea",
+                        pt2: "Básico",
+                        pp2: "Perfecto para pequeñas empresas",
+                        pp3: "Más Popular",
+                        pt3: "Empresarial",
+                        pp4: "Ideal para empresas en crecimiento",
+                        pt4: "Premium",
+                        pp5: "Solución personalizada completa",
+                        pp6: "¿Necesitas una solución personalizada? Contáctanos para un presupuesto gratuito.",
+                        copy: "© 2025 NovaWeb Solutions. Todos los derechos reservados."
+                    }
                 }
-            },
-            en: {
-                translation: {
-                title: "Welcome",
-                subtitle: "Discover our revolutionary product.",
-                cta: "Get started now",
-                emailPlaceholder: "Enter your email"
-                }
-            },
-            es: {
-                translation: {
-                title: "Bienvenido",
-                subtitle: "Descubre nuestro producto revolucionario.",
-                cta: "Comienza ahora",
-                emailPlaceholder: "Introduce tu correo electrónico"
-                }
-            }
-        };
-        
-        i18next
-        .use(i18nextBrowserLanguageDetector)
-        .init({
-            resources,
-            fallbackLng: 'fr',
-            debug: false
-        }, function(err, t) {
-            updateContent();
-        });
+            };
 
-        function updateContent() {
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-
-            if (key.includes('[')) {
-            // Traduction d'attribut
-            const match = key.match(/\[(.+?)\](.+)/);
-            if (match) {
-                const attr = match[1];
-                const realKey = match[2];
-                el.setAttribute(attr, i18next.t(realKey));
-            }
-            } else {
-            // Texte classique
-            el.textContent = i18next.t(key);
-            }
-        });
-        }
-
-        function changeLanguage(lng) {
-        i18next.changeLanguage(lng, updateContent);
-        }
-            
+            i18next
+            .use(i18nextBrowserLanguageDetector)
+            .init({
+                resources,
+                fallbackLng: 'fr',
+                debug: false,
+                interpolation: { escapeValue: false }
+            }).then(() => {
+                // Initial updates
+                updateContent();
+                updateLanguageSelector();
+                
+                // Écouteur pour les changements futurs
+                i18next.on('languageChanged', () => {
+                    updateContent();
+                    updateLanguageSelector();
+                });
+            });
     </script>
 </body>
 </html>
