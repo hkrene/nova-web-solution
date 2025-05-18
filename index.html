@@ -638,6 +638,71 @@
                 }
             });
         });
+
+
+        // language configuration 
+
+
+        const resources = {
+            fr: {
+                translation: {
+                title: "Bienvenue",
+                subtitle: "Découvre notre produit révolutionnaire.",
+                cta: "Commencer maintenant",
+                emailPlaceholder: "Entrez votre e-mail"
+                }
+            },
+            en: {
+                translation: {
+                title: "Welcome",
+                subtitle: "Discover our revolutionary product.",
+                cta: "Get started now",
+                emailPlaceholder: "Enter your email"
+                }
+            },
+            es: {
+                translation: {
+                title: "Bienvenido",
+                subtitle: "Descubre nuestro producto revolucionario.",
+                cta: "Comienza ahora",
+                emailPlaceholder: "Introduce tu correo electrónico"
+                }
+            }
+        };
+        
+        i18next
+        .use(i18nextBrowserLanguageDetector)
+        .init({
+            resources,
+            fallbackLng: 'fr',
+            debug: false
+        }, function(err, t) {
+            updateContent();
+        });
+
+        function updateContent() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+
+            if (key.includes('[')) {
+            // Traduction d'attribut
+            const match = key.match(/\[(.+?)\](.+)/);
+            if (match) {
+                const attr = match[1];
+                const realKey = match[2];
+                el.setAttribute(attr, i18next.t(realKey));
+            }
+            } else {
+            // Texte classique
+            el.textContent = i18next.t(key);
+            }
+        });
+        }
+
+        function changeLanguage(lng) {
+        i18next.changeLanguage(lng, updateContent);
+        }
+            
     </script>
 </body>
 </html>
