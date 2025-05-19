@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
-    <!-- <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script> -->
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
 
     
     
@@ -596,57 +596,9 @@
     <!-- Scripts -->
     <script>
 
-        // Fonctions globales
 
-        function changeLanguage(lng) {
-            i18next.changeLanguage(lng);
-        }
-
-        function updateLanguageSelector() {
-            document.querySelectorAll('select[onchange="changeLanguage(this.value)"]').forEach(select => {
-                select.value = i18next.language;
-            });
-        }
-
-        function updateContent() {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                el.innerHTML = i18next.t(key);
-            });
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            // Mobile menu toggle
-            document.getElementById('mobile-menu-button').addEventListener('click', function() {
-                const menu = document.getElementById('mobile-menu');
-                menu.classList.toggle('hidden');
-            });
-
-            new Splide('#splide', {
-                type: 'loop',
-                perPage: 2,
-                // focus: 'center',
-                gap: '4rem',
-                arrows: false,
-                pagination: false,
-                autoplay: true,
-                interval: 0,         // presque 0 pour continuer sans pause
-                speed: 10000,         // plus la valeur est grande, plus ça glisse doucement
-                easing: 'linear',    // pour une vitesse constante
-                drag: false,         // pour éviter que l’utilisateur casse le flux
-            }).mount();
-
-            
-
-
-        
-
-        }); 
-            
-       
-
-
-            // Configuration i18next
-            const resources = {
+        // Configuration i18next
+        const resources = {
                 fr: {
                     translation: {
                         home: "Accueil",
@@ -742,6 +694,50 @@
                 }
             };
 
+
+
+            // Fonctions globales
+
+            function changeLanguage(lng) {
+                i18next.changeLanguage(lng);
+            }
+
+            function updateLanguageSelector() {
+                document.querySelectorAll('select[onchange="changeLanguage(this.value)"]').forEach(select => {
+                    select.value = i18next.language;
+                });
+            }
+
+            function updateContent() {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    el.innerHTML = i18next.t(key);
+                });
+            }
+
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            });
+
+            new Splide('#splide', {
+                type: 'loop',
+                perPage: 2,
+                // focus: 'center',
+                gap: '4rem',
+                arrows: false,
+                pagination: false,
+                autoplay: true,
+                interval: 0,         // presque 0 pour continuer sans pause
+                speed: 10000,         // plus la valeur est grande, plus ça glisse doucement
+                easing: 'linear',    // pour une vitesse constante
+                drag: false,         // pour éviter que l’utilisateur casse le flux
+            }).mount();
+
+            
             i18next
             .use(i18nextBrowserLanguageDetector)
             .init({
@@ -760,8 +756,12 @@
                 });
             });
 
+            
 
 
+
+        }); 
+            
     </script>
 </body>
 </html>
