@@ -74,6 +74,7 @@
                         <select onchange="changeLanguage(this.value)" class="px-3 py-2 rounded border border-gray-300 shadow">
                         <option value="fr">🇫🇷 FR</option>
                         <option value="en">🇬🇧 EN</option>
+                        <option value="pt">🇵🇹 PT</option>
                         <option value="es">🇪🇸 ES</option>
                         </select>
                     </div>
@@ -112,12 +113,12 @@
 
     <div class="md:fixed bottom-6 right-20 z-10">
         <select onchange="changeLanguage(this.value)" class="px-3 py-2 rounded-md border-2 border-indigo-700 border-gray-300 outline-none shadow">
-        <option value="fr">🇫🇷 FR</option>
-        <option value="en">🇬🇧 EN</option>
-        <option value="es">🇪🇸 ES</option>
+            <option value="fr">🇫🇷 FR</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="pt">🇵🇹 PT</option>
+            <option value="es">🇪🇸 ES</option>
         </select>
     </div>
-
     <!-- Hero Section -->
     <section id="accueil" class="hero-gradient pt-32 pb-20 md:pt-40 md:pb-28 text-white">
         <div class="container mx-auto px-6 lg:px-28">
@@ -560,21 +561,21 @@
                     <div>
                         <h4 data-i18n="foott2" class="text-lg font-semibold mb-4">Services</h4>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sites vitrine</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">E-commerce</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SEO</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Maintenance</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hébergement</a></li>
+                            <li><a data-i18n="footb1" href="#" class="text-gray-400 hover:text-white transition duration-300">Sites vitrine</a></li>
+                            <li><a data-i18n="footb2"  href="#" class="text-gray-400 hover:text-white transition duration-300">E-commerce</a></li>
+                            <li><a data-i18n="footb3"  href="#" class="text-gray-400 hover:text-white transition duration-300">SEO</a></li>
+                            <li><a data-i18n="footb4"  href="#" class="text-gray-400 hover:text-white transition duration-300">Maintenance</a></li>
+                            <li><a data-i18n="footb5"  href="#" class="text-gray-400 hover:text-white transition duration-300">Hébergement</a></li>
                         </ul>
                     </div>
                     
                     <div>
                         <h4 data-i18n="foott3" class="text-lg font-semibold mb-4">Légal</h4>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mentions légales</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Politique de confidentialité</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Conditions générales</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookies</a></li>
+                            <li data-i18n="footb6" ><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mentions légales</a></li>
+                            <li><a data-i18n="footb7"  href="#" class="text-gray-400 hover:text-white transition duration-300">Politique de confidentialité</a></li>
+                            <li><a data-i18n="footb8"  href="#" class="text-gray-400 hover:text-white transition duration-300">Conditions générales</a></li>
+                            <li><a data-i18n="footb9"  href="#" class="text-gray-400 hover:text-white transition duration-300">Cookies</a></li>
                         </ul>
                     </div>
                 </div>
@@ -600,21 +601,21 @@
 const resources = {
   fr: {
     translation: {
-      // Navigation et Hero
+      // Hero Section
       "hero_t": "Réussissez votre <span class='text-yellow-300'>transformation digitale</span>",
       "hero_p": "Des solutions digitales conçues sur mesure pour propulser votre entreprise",
       "hero_b1": "Demander un devis",
       "hero_b2": "Nos services",
-      
+
       // Features
       "ft": "Nos Solutions Web",
       "ft2": "Conception de Site Web",
       "fp1": "Création de sites web modernes, responsives et optimisés pour tous les appareils.",
       "ft3": "Livraison Rapide",
       "fp2": "Sites web livrés à partir de 3 jours, sans compromis sur la qualité.",
-      "ft4": "Tarifs Accessibles",
+      "ft4": "Tarifs Accessibles", 
       "fp3": "Des solutions professionnelles à partir de $299 seulement.",
-      
+
       // Pricing
       "pt": "Nos Tarifs",
       "pp1": "Des solutions adaptées à tous les budgets pour votre présence en ligne",
@@ -640,29 +641,29 @@ const resources = {
       "pp17": "SEO expert",
       "pp18": "Fonctionnalités sur mesure",
       "pp19": "Traductions personnalisées",
-      "pp6": "Besoin d'une solution personnalisée? <a href='#contact' class='text-indigo-600 hover:underline'>Contactez-nous</a> pour un devis gratuit.",
-      
+      "pp20": "Besoin d'une solution personnalisée? Contactez-nous pour un devis gratuit.",
+
       // Portfolio
-      "pst": "Projets",
+      "pst": "Nos Réalisations",
       "psp": "Découvrez quelques-uns de nos projets récents",
-      
+
       // Testimonials
-      "tst": "Témoignages",
-      "tsp1": "\"NovaWeb a créé un site magnifique pour mon entreprise en seulement 7 jours. Le résultat a dépassé mes attentes et j'ai déjà vu une augmentation de mes leads.\"",
+      "tst": "Témoignages Clients",
+      "tsp1": "NovaWeb a créé un site magnifique pour mon entreprise en seulement 7 jours. Le résultat a dépassé mes attentes.",
       "tsp2": "Directrice Marketing",
-      "tsp3": "\"Leur équipe a été incroyablement professionnelle. Ils ont écouté mes besoins et ont livré un site parfaitement adapté à mon activité à un prix très raisonnable.\"",
+      "tsp3": "Leur équipe a été incroyablement professionnelle et a livré un site parfaitement adapté à mon activité.",
       "tsp4": "Entrepreneur",
-      "tsp5": "\"Je recommande NovaWeb à tous ceux qui cherchent un site web professionnel rapidement. Leur service client est exceptionnel et toujours disponible pour répondre aux questions.\"",
+      "tsp5": "Je recommande NovaWeb à tous ceux qui cherchent un site web professionnel rapidement.",
       "tsp6": "Artiste indépendante",
-      
+
       // CTA
       "ctat": "Prêt à démarrer votre projet?",
-      "ctap": "Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis gratuit.",
+      "ctap": "Contactez-nous dès aujourd'hui pour discuter de votre projet.",
       "ctab": "Demander un devis",
-      
+
       // Contact
       "cst": "Contactez-nous",
-      "csp": "Vous avez des questions ou souhaitez discuter de votre projet? Remplissez le formulaire ou contactez-nous directement.",
+      "csp": "Vous avez des questions? Remplissez le formulaire ou contactez-nous directement.",
       "cst2": "Téléphone",
       "cst3": "Email",
       "csi1": "Nom complet",
@@ -670,27 +671,36 @@ const resources = {
       "csi3": "Sujet",
       "csi4": "Message",
       "csb": "Envoyer le message",
-      
+
       // Footer
       "foott1": "Liens rapides",
       "foott2": "Services",
       "foott3": "Légal",
       "home": "Accueil",
-      "services": "Services",
+      "services": "Services", 
       "tarifs": "Tarifs",
       "portfolio": "Portfolio",
       "contact": "Contact",
+      "footb1": "Sites vitrine",
+      "footb2": "E-commerce",
+      "footb3": "SEO",
+      "footb4": "Maintenance",
+      "footb5": "Hébergement",
+      "footb6": "Mentions légales",
+      "footb7": "Politique de confidentialité",
+      "footb8": "Conditions générales",
+      "footb9": "Cookies",
       "copy": "© 2025 NovaWeb Solutions. Tous droits réservés."
     }
   },
   en: {
     translation: {
-      // Navigation et Hero
+      // Hero Section
       "hero_t": "Achieve your <span class='text-yellow-300'>digital transformation</span>",
       "hero_p": "Custom digital solutions designed to boost your business",
       "hero_b1": "Get a quote",
       "hero_b2": "Our services",
-      
+
       // Features
       "ft": "Our Web Solutions",
       "ft2": "Web Design",
@@ -699,7 +709,7 @@ const resources = {
       "fp2": "Websites delivered in as little as 3 days, without compromising quality.",
       "ft4": "Affordable Prices",
       "fp3": "Professional solutions starting at just $299.",
-      
+
       // Pricing
       "pt": "Our Pricing",
       "pp1": "Solutions adapted to all budgets for your online presence",
@@ -725,29 +735,29 @@ const resources = {
       "pp17": "Expert SEO",
       "pp18": "Custom features",
       "pp19": "Custom translations",
-      "pp6": "Need a custom solution? <a href='#contact' class='text-indigo-600 hover:underline'>Contact us</a> for a free quote.",
-      
+      "pp20": "Need a custom solution? Contact us for a free quote.",
+
       // Portfolio
-      "pst": "Projects",
-      "psp": "Discover some of our recent projects",
-      
+      "pst": "Our Projects",
+      "psp": "Discover some of our recent work",
+
       // Testimonials
-      "tst": "Testimonials",
-      "tsp1": "\"NovaWeb created a beautiful website for my business in just 7 days. The result exceeded my expectations and I've already seen an increase in leads.\"",
+      "tst": "Client Testimonials",
+      "tsp1": "NovaWeb created a beautiful website for my business in just 7 days. The result exceeded my expectations.",
       "tsp2": "Marketing Director",
-      "tsp3": "\"Their team was incredibly professional. They listened to my needs and delivered a site perfectly suited to my business at a very reasonable price.\"",
+      "tsp3": "Their team was incredibly professional and delivered a site perfectly suited to my business.",
       "tsp4": "Entrepreneur",
-      "tsp5": "\"I recommend NovaWeb to anyone looking for a professional website quickly. Their customer service is exceptional and always available to answer questions.\"",
+      "tsp5": "I recommend NovaWeb to anyone looking for a professional website quickly.",
       "tsp6": "Independent Artist",
-      
+
       // CTA
       "ctat": "Ready to start your project?",
-      "ctap": "Contact us today to discuss your project and get a free quote.",
+      "ctap": "Contact us today to discuss your project.",
       "ctab": "Get a quote",
-      
+
       // Contact
       "cst": "Contact Us",
-      "csp": "Do you have questions or want to discuss your project? Fill out the form or contact us directly.",
+      "csp": "Have questions? Fill out the form or contact us directly.",
       "cst2": "Phone",
       "cst3": "Email",
       "csi1": "Full Name",
@@ -755,7 +765,7 @@ const resources = {
       "csi3": "Subject",
       "csi4": "Message",
       "csb": "Send Message",
-      
+
       // Footer
       "foott1": "Quick Links",
       "foott2": "Services",
@@ -765,17 +775,26 @@ const resources = {
       "tarifs": "Pricing",
       "portfolio": "Portfolio",
       "contact": "Contact",
+      "footb1": "Showcase websites",
+      "footb2": "E-commerce",
+      "footb3": "SEO",
+      "footb4": "Maintenance",
+      "footb5": "Hosting",
+      "footb6": "Legal Notice",
+      "footb7": "Privacy Policy",
+      "footb8": "Terms of Service",
+      "footb9": "Cookies",
       "copy": "© 2025 NovaWeb Solutions. All rights reserved."
     }
   },
   es: {
     translation: {
-      // Navigation et Hero
+      // Hero Section
       "hero_t": "Logra tu <span class='text-yellow-300'>transformación digital</span>",
-      "hero_p": "Soluciones digitales personalizadas diseñadas para impulsar tu negocio",
+      "hero_p": "Soluciones digitales personalizadas para impulsar tu negocio",
       "hero_b1": "Obtener presupuesto",
       "hero_b2": "Nuestros servicios",
-      
+
       // Features
       "ft": "Nuestras Soluciones Web",
       "ft2": "Diseño Web",
@@ -784,7 +803,7 @@ const resources = {
       "fp2": "Sitios web entregados en tan solo 3 días, sin comprometer la calidad.",
       "ft4": "Precios Accesibles",
       "fp3": "Soluciones profesionales desde $299.",
-      
+
       // Pricing
       "pt": "Nuestros Precios",
       "pp1": "Soluciones adaptadas a todos los presupuestos para tu presencia en línea",
@@ -810,29 +829,29 @@ const resources = {
       "pp17": "SEO experto",
       "pp18": "Funcionalidades personalizadas",
       "pp19": "Traducciones personalizadas",
-      "pp6": "¿Necesitas una solución personalizada? <a href='#contact' class='text-indigo-600 hover:underline'>Contáctanos</a> para un presupuesto gratuito.",
-      
+      "pp20": "¿Necesitas una solución personalizada? Contáctanos para un presupuesto gratuito.",
+
       // Portfolio
-      "pst": "Proyectos",
-      "psp": "Descubre algunos de nuestros proyectos recientes",
-      
+      "pst": "Nuestros Proyectos",
+      "psp": "Descubre algunos de nuestros trabajos recientes",
+
       // Testimonials
-      "tst": "Testimonios",
-      "tsp1": "\"NovaWeb creó un sitio web hermoso para mi negocio en solo 7 días. El resultado superó mis expectativas y ya he visto un aumento en clientes potenciales.\"",
+      "tst": "Testimonios de Clientes",
+      "tsp1": "NovaWeb creó un sitio web hermoso para mi negocio en solo 7 días. El resultado superó mis expectativas.",
       "tsp2": "Directora de Marketing",
-      "tsp3": "\"Su equipo fue increíblemente profesional. Escucharon mis necesidades y entregaron un sitio perfectamente adaptado a mi negocio a un precio muy razonable.\"",
+      "tsp3": "Su equipo fue increíblemente profesional y entregó un sitio perfectamente adaptado a mi negocio.",
       "tsp4": "Emprendedor",
-      "tsp5": "\"Recomiendo NovaWeb a cualquiera que busque un sitio web profesional rápidamente. Su servicio al cliente es excepcional y siempre disponible para responder preguntas.\"",
+      "tsp5": "Recomiendo NovaWeb a cualquiera que busque un sitio web profesional rápidamente.",
       "tsp6": "Artista Independiente",
-      
+
       // CTA
       "ctat": "¿Listo para comenzar tu proyecto?",
-      "ctap": "Contáctanos hoy para discutir tu proyecto y obtener un presupuesto gratuito.",
+      "ctap": "Contáctanos hoy para discutir tu proyecto.",
       "ctab": "Obtener presupuesto",
-      
+
       // Contact
       "cst": "Contáctanos",
-      "csp": "¿Tienes preguntas o deseas discutir tu proyecto? Completa el formulario o contáctanos directamente.",
+      "csp": "¿Tienes preguntas? Completa el formulario o contáctanos directamente.",
       "cst2": "Teléfono",
       "cst3": "Correo electrónico",
       "csi1": "Nombre completo",
@@ -840,7 +859,7 @@ const resources = {
       "csi3": "Asunto",
       "csi4": "Mensaje",
       "csb": "Enviar mensaje",
-      
+
       // Footer
       "foott1": "Enlaces rápidos",
       "foott2": "Servicios",
@@ -850,7 +869,110 @@ const resources = {
       "tarifs": "Precios",
       "portfolio": "Portafolio",
       "contact": "Contacto",
+      "footb1": "Sitios vitrina",
+      "footb2": "E-commerce",
+      "footb3": "SEO",
+      "footb4": "Mantenimiento",
+      "footb5": "Alojamiento",
+      "footb6": "Aviso Legal",
+      "footb7": "Política de Privacidad",
+      "footb8": "Términos de Servicio",
+      "footb9": "Cookies",
       "copy": "© 2025 NovaWeb Solutions. Todos los derechos reservados."
+    }
+  },
+  pt: {
+    translation: {
+      // Hero Section
+      "hero_t": "Alcance sua <span class='text-yellow-300'>transformação digital</span>",
+      "hero_p": "Soluções digitais personalizadas para impulsionar seu negócio",
+      "hero_b1": "Solicitar orçamento",
+      "hero_b2": "Nossos serviços",
+
+      // Features
+      "ft": "Nossas Soluções Web",
+      "ft2": "Design de Website",
+      "fp1": "Criação de sites modernos, responsivos e otimizados para todos os dispositivos.",
+      "ft3": "Entrega Rápida",
+      "fp2": "Sites entregues em apenas 3 dias, sem comprometer a qualidade.",
+      "ft4": "Preços Acessíveis", 
+      "fp3": "Soluções profissionais a partir de $299.",
+
+      // Pricing
+      "pt": "Nossos Preços",
+      "pp1": "Soluções adaptadas a todos os orçamentos para sua presença online",
+      "pt2": "Starter",
+      "pp2": "Perfeito para pequenos negócios",
+      "pp3": "/projeto",
+      "pp4": "Site institucional 3 páginas",
+      "pp5": "Design responsivo",
+      "pp6": "Otimização SEO básica",
+      "ppb": "Escolher este plano",
+      "pp7": "Mais Popular",
+      "pt3": "Business",
+      "pp8": "Ideal para empresas em crescimento",
+      "pp9": "Site institucional 3+ páginas",
+      "pp10": "Design personalizado",
+      "pp11": "SEO avançado",
+      "pp12": "Formulário de contato",
+      "pp13": "Tradução em 1 idioma",
+      "pt4": "Premium",
+      "pp14": "Solução completa personalizada",
+      "pp15": "Site completo",
+      "pp16": "Design premium",
+      "pp17": "SEO especializado",
+      "pp18": "Funcionalidades personalizadas",
+      "pp19": "Traduções personalizadas",
+      "pp20": "Precisa de uma solução personalizada? Contate-nos para um orçamento gratuito.",
+
+      // Portfolio
+      "pst": "Nossos Projetos",
+      "psp": "Conheça alguns dos nossos trabalhos recentes",
+
+      // Testimonials
+      "tst": "Depoimentos de Clientes",
+      "tsp1": "A NovaWeb criou um site lindo para minha empresa em apenas 7 dias. O resultado superou minhas expectativas.",
+      "tsp2": "Diretora de Marketing",
+      "tsp3": "A equipe foi incrivelmente profissional e entregou um site perfeitamente adaptado ao meu negócio.",
+      "tsp4": "Empreendedor",
+      "tsp5": "Recomendo a NovaWeb para quem busca um site profissional rapidamente.",
+      "tsp6": "Artista Independente",
+
+      // CTA
+      "ctat": "Pronto para começar seu projeto?",
+      "ctap": "Entre em contato hoje mesmo para discutir seu projeto.",
+      "ctab": "Solicitar orçamento",
+
+      // Contact
+      "cst": "Contate-nos",
+      "csp": "Tem dúvidas? Preencha o formulário ou entre em contato diretamente.",
+      "cst2": "Telefone",
+      "cst3": "Email",
+      "csi1": "Nome completo",
+      "csi2": "Email",
+      "csi3": "Assunto",
+      "csi4": "Mensagem",
+      "csb": "Enviar mensagem",
+
+      // Footer
+      "foott1": "Links rápidos",
+      "foott2": "Serviços",
+      "foott3": "Legal",
+      "home": "Início",
+      "services": "Serviços",
+      "tarifs": "Preços",
+      "portfolio": "Portfólio",
+      "contact": "Contato",
+      "footb1": "Sites institucionais",
+      "footb2": "E-commerce",
+      "footb3": "SEO",
+      "footb4": "Manutenção",
+      "footb5": "Hospedagem",
+      "footb6": "Aviso Legal",
+      "footb7": "Política de Privacidade",
+      "footb8": "Termos de Serviço",
+      "footb9": "Cookies",
+      "copy": "© 2025 NovaWeb Solutions. Todos os direitos reservados."
     }
   }
 };
