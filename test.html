@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaWeb Solutions - Conception de Sites Web Professionnels</title>
+    <meta name="description" content="NovaWeb Solutions crée des sites web professionnels à partir de $299 avec livraison a partir de 3 jours. Réussissez votre transformation digitale avec notre équipe experte.">
+    
+    <!-- Preload Tailwind CSS -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></noscript>
+    
+    <!-- Preload Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Preconnect to important origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    
+    <style>
+        /* Critical CSS */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .dark {
+            background-color: #111111;
+            color: #f3f3f3;
+        }
+        
+        .dark .bg-white {
+            background-color: #1a1a1a !important;
+            color: #f3f3f3;
+        }
+        
+        .dark .text-gray-800 {
+            color: #f3f3f3 !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #b3b3b3 !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #222222 !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #333333 !important;
+        }
+        
+        .dark .bg-gray-900 {
+            background-color: #000000 !important;
+        }
+        
+        .dark .text-gray-400 {
+            color: #888888 !important;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #333333 0%, #666666 100%);
+        }
+        
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Dark mode toggle switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #6b7280;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #6b7280;
+        }
+    </style>
+    
+    <!-- Deferred JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Splide CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"/>
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+</head>
+<body class="antialiased text-gray-800">
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <div class="relative inline-block w-12 mr-2 align-middle select-none">
+            <input type="checkbox" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+            <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+        </div>
+        <span class="text-sm font-medium">
+            <i class="fas fa-moon dark:text-yellow-300"></i>
+        </span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-40 dark:bg-gray-900 dark:shadow-lg">
+        <div class="container mx-auto px-6 lg:px-28 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-900 dark:text-white">Nova<span class="text-gray-600 dark:text-gray-300">Web</span></a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="md:hidden">
+                        <select onchange="changeLanguage(this.value)" class="px-3 py-2 rounded border border-gray-300 shadow dark:bg-gray-800 dark:text-white dark:border-gray-600">
+                            <option value="fr">🇫🇷 FR</option>
+                            <option value="en">🇬🇧 EN</option>
+                            <option value="pt">🇵🇹 PT</option>
+                            <option value="es">🇪🇸 ES</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button class="text-gray-500 focus:outline-none dark:text-gray-300" id="mobile-menu-button" title="Toggle mobile menu">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#accueil" data-i18n="home" class="text-gray-700 hover:text-gray-900 font-medium dark:text-gray-300 dark:hover:text-white">Accueil</a>
+                    <a href="#services" data-i18n="services" class="text-gray-700 hover:text-gray-900 font-medium dark:text-gray-300 dark:hover:text-white">Services</a>
+                    <a href="#tarifs" data-i18n="tarifs" class="text-gray-700 hover:text-gray-900 font-medium dark:text-gray-300 dark:hover:text-white">Tarifs</a>
+                    <a href="#portfolio" data-i18n="portfolio" class="text-gray-700 hover:text-gray-900 font-medium dark:text-gray-300 dark:hover:text-white">Portfolio</a>
+                    <a href="#contact" data-i18n="contact" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition duration-300 dark:bg-gray-600 dark:hover:bg-gray-500">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <a href="#accueil" data-i18n="home" class="block py-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Accueil</a>
+                <a href="#services" data-i18n="services" class="block py-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Services</a>
+                <a href="#tarifs" data-i18n="tarifs" class="block py-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Tarifs</a>
+                <a href="#portfolio" data-i18n="portfolio" class="block py-2 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Portfolio</a>
+                <a href="#contact" data-i18n="contact" class="block mt-2 bg-gray-800 text-white px-4 py-2 rounded-lg text-center hover:bg-gray-700 dark:bg-gray-600 dark:hover:bg-gray-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="md:fixed bottom-6 right-20 z-10">
+        <select onchange="changeLanguage(this.value)" class="px-3 py-2 rounded-md border-2 border-gray-300 outline-none shadow dark:bg-gray-800 dark:text-white dark:border-gray-600">
+            <option value="fr">🇫🇷 FR</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="pt">🇵🇹 PT</option>
+            <option value="es">🇪🇸 ES</option>
+        </select>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-gradient pt-32 pb-20 md:pt-40 md:pb-28 text-white">
+        <div class="container mx-auto px-6 lg:px-28">
+            <div class="hidden md:flex mb-8 justify-center">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Développement web" class="rounded-lg shadow-2xl transform hover:scale-105 transition duration-500 lg:w-full grayscale contrast-125">
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="mb-12 md:mb-0">
+                    <h1 data-i18n="hero_t" class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        Réussissez votre <span class="text-white">transformation digitale</span>
+                    </h1>
+                    <p data-i18n="hero_p" class="text-xl md:text-2xl mb-8 opacity-90">
+                        Des solutions digitales conçus sur mesure pour propulser votre entreprise
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" data-i18n="hero_b1" class="bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 text-center btn-primary dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700">
+                            Demander un devis
+                        </a>
+                        <a href="#services" data-i18n="hero_b2" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-800 transition duration-300 text-center dark:hover:bg-gray-800 dark:hover:text-white">
+                            Nos services
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:hidden">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Développement web" class="rounded-lg shadow-2xl transform hover:scale-105 transition duration-500 grayscale contrast-125">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6 lg:px-28">
+            <div class="text-center mb-16">
+                <h2 data-i18n="ft" class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 dark:text-white">Nos Solutions Web</h2>
+                <div class="w-20 h-1 bg-gray-600 mx-auto dark:bg-gray-300"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4">
+                <div class="bg-white px-4 py-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 dark:bg-gray-700 dark:hover:shadow-gray-600">
+                    <div class="text-gray-600 mb-4 dark:text-gray-300">
+                        <i class="fas fa-laptop-code text-4xl"></i>
+                    </div>
+                    <h3 data-i18n="ft2" class="text-xl font-bold mb-3 dark:text-white">Conception de Site Web</h3>
+                    <p data-i18n="fp1" class="text-gray-600 dark:text-gray-300">
+                        Création de sites web modernes, responsives et optimisés pour tous les appareils.
+                    </p>
+                </div>
+                
+                <div class="bg-white px-4 py-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 dark:bg-gray-700 dark:hover:shadow-gray-600">
+                    <div class="text-gray-600 mb-4 dark:text-gray-300">
+                        <i class="fas fa-rocket text-4xl"></i>
+                    </div>
+                    <h3 data-i18n="ft3" class="text-xl font-bold mb-3 dark:text-white">Livraison Rapide</h3>
+                    <p data-i18n="fp2" class="text-gray-600 dark:text-gray-300">
+                        Sites web livrés a partir de 3 jours, sans compromis sur la qualité.
+                    </p>
+                </div>
+                
+                <div class="bg-white px-4 py-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 dark:bg-gray-700 dark:hover:shadow-gray-600">
+                    <div class="text-gray-600 mb-4 dark:text-gray-300">
+                        <i class="fas fa-wallet text-4xl"></i>
+                    </div>
+                    <h3 data-i18n="ft4" class="text-xl font-bold mb-3 dark:text-white">Tarifs Accessibles</h3>
+                    <p data-i18n="fp3" class="text-gray-600 dark:text-gray-300">
+                        Des solutions professionnelles à partir de $299 seulement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="tarifs" class="py-20 dark:bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="pt" class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 dark:text-white">Nos Tarifs</h2>
+                <p data-i18n="pp1" class="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+                    Des solutions adaptées à tous les budgets pour votre présence en ligne
+                </p>
+                <div class="w-20 h-1 bg-gray-600 mx-auto mt-4 dark:bg-gray-300"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:border-gray-500 transition duration-300 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="px-4 py-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 data-i18n="pt2" class="text-2xl font-bold text-gray-800 dark:text-white">Starter</h3>
+                        <p data-i18n="pp2" class="text-gray-600 mt-2 dark:text-gray-300">Parfait pour les petites entreprises</p>
+                    </div>
+                    <div class="px-4 py-6">
+                        <div class="flex items-center">
+                            <span class="text-4xl font-bold text-gray-600 dark:text-gray-300">$299</span>
+                            <span data-i18n="pp3" class="ml-1 text-gray-500 dark:text-gray-400">/projet</span>
+                        </div>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp4" class="dark:text-gray-300">Site vitrine 3 pages</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp5" class="dark:text-gray-300">Design responsive</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp6" class="dark:text-gray-300">Optimisation SEO de base</span>
+                            </li>
+                        </ul>
+                        <a data-i18n="ppb" href="#contact" class="mt-8 block w-full bg-gray-100 text-gray-800 text-center py-3 rounded-lg font-medium hover:bg-gray-200 transition duration-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
+                            Choisir ce plan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Popular Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gray-600 transform scale-105 z-10 dark:bg-gray-800 dark:border-gray-500">
+                    <div data-i18n="pp7" class="bg-gray-600 text-white px-4 py-2 text-center font-medium dark:bg-gray-500">
+                        Le plus populaire
+                    </div>
+                    <div class="px-4 py-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 data-i18n="pt3" class="text-2xl font-bold text-gray-800 dark:text-white">Business</h3>
+                        <p data-i18n="pp8" class="text-gray-600 mt-2 dark:text-gray-300">Idéal pour les entreprises en croissance</p>
+                    </div>
+                    <div class="px-4 py-6">
+                        <div class="flex items-center">
+                            <span class="text-4xl font-bold text-gray-600 dark:text-gray-300">$539</span>
+                            <span data-i18n="pp3" class="ml-1 text-gray-500 dark:text-gray-400">/projet</span>
+                        </div>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp9" class="dark:text-gray-300">Site vitrine 3+ pages</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp10" class="dark:text-gray-300">Design personnalisé</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp11" class="dark:text-gray-300">SEO avancé</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp12" class="dark:text-gray-300">Formulaire de contact</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp13" class="dark:text-gray-300">Traduction en 1 langue</span>
+                            </li>
+                        </ul>
+                        <a data-i18n="ppb" href="#contact" class="mt-8 block w-full bg-gray-600 text-white text-center py-3 rounded-lg font-medium hover:bg-gray-700 transition duration-300 dark:bg-gray-500 dark:hover:bg-gray-400">
+                            Choisir ce plan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:border-gray-600 transition duration-300 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="px-4 py-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 data-i18n="pt4" class="text-2xl font-bold text-gray-800 dark:text-white">Premium</h3>
+                        <p data-i18n="pp14" class="text-gray-600 mt-2 dark:text-gray-300">Solution complète sur mesure</p>
+                    </div>
+                    <div class="px-4 py-6">
+                        <div class="flex items-center">
+                            <span class="text-4xl font-bold text-gray-600 dark:text-gray-300">$1,K+</span>
+                            <span data-i18n="pp3" class="ml-1 text-gray-500 dark:text-gray-400">/projet</span>
+                        </div>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp15" class="dark:text-gray-300">Site web complet</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp16" class="dark:text-gray-300">Design haut de gamme</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp17" class="dark:text-gray-300">SEO expert</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp18" class="dark:text-gray-300">Fonctionnalités sur mesure</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-gray-600 mr-2 dark:text-gray-300"></i>
+                                <span data-i18n="pp19" class="dark:text-gray-300">Traductions personalisées</span>
+                            </li>
+                        </ul>
+                        <a data-i18n="ppb" href="#contact" class="mt-8 block w-full bg-gray-100 text-gray-600 text-center py-3 rounded-lg font-medium hover:bg-gray-200 transition duration-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
+                            Choisir ce plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p data-i18n="pp6" class="text-gray-600 dark:text-gray-300">
+                    Besoin d'une solution personnalisée ? <a href="#contact" class="text-gray-600 hover:underline dark:text-gray-400">Contactez-nous</a> pour un devis gratuit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6 lg:px-28 overflow-hidden">
+            <div class="text-center mb-16">
+                <h2 data-i18n="pst" class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 dark:text-white">Projets</h2>
+                <p data-i18n="psp" class="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+                    Découvrez quelques-uns de nos projets récents
+                </p>
+                <div class="w-20 h-1 bg-gray-600 mx-auto mt-4 dark:bg-gray-300"></div>
+            </div>
+
+            <div class="splide" id="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="first project" class="w-full h-48 rounded-lg grayscale">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="second project" class="w-full h-48 rounded-lg grayscale">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="fird project" class="w-full h-48 rounded-lg grayscale">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="fourth project" class="w-full h-48 rounded-lg grayscale">
+                        </li>
+                        <li class="splide__slide">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="fith project" class="w-full h-48 rounded-lg grayscale">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-700 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="tst" class="text-3xl md:text-4xl font-bold mb-4">Temoignages</h2>
+                <div class="w-20 h-1 bg-gray-300 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800 px-4 py-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gray-300 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p data-i18n="tsp1" class="mb-6 italic">
+                        "NovaWeb a créé un site magnifique pour mon entreprise en seulement 7 jours. Le résultat a dépassé mes attentes et j'ai déjà vu une augmentation de mes leads."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://media.istockphoto.com/id/1401557224/photo/confident-businesswoman-in-modern-office.jpg?s=612x612&w=0&k=20&c=_r6SmNYFG-x-2OFIjQA8hGu7e7QHBL0m6bR8RgsmMYY=" alt="Client 1" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Sophie Martin</h4>
+                            <p data-i18n="tsp2" class="text-gray-400 text-sm">Directrice Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800 px-4 py-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gray-300 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p data-i18n="tsp3" class="mb-6 italic">
+                        "Leur équipe a été incroyablement professionnelle. Ils ont écouté mes besoins et ont livré un site parfaitement adapté à mon activité à un prix très raisonnable."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3dKtNsRcDimTzuVv5y2ruBanYbUiJd28KIA&s" alt="Client 2" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Jean Dupont</h4>
+                            <p data-i18n="tsp4" class="text-gray-400 text-sm">Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-800 px-4 py-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gray-300 text-2xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p data-i18n="tsp5" class="mb-6 italic">
+                        "Je recommande NovaWeb à tous ceux qui cherchent un site web professionnel rapidement. Leur service client est exceptionnel et toujours disponible pour répondre aux questions."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhgRko9ESzmQIW5czFrQhXB8QuDEHWOPECiQ&s" alt="Client 3" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Marie Leroy</h4>
+                            <p data-i18n="tsp6" class="text-gray-400 text-sm">Artiste indépendante</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-gray-600 to-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 data-i18n="ctat" class="text-3xl md:text-4xl font-bold mb-6">Prêt à démarrer votre projet?</h2>
+            <p data-i18n="ctap" class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis gratuit.
+            </p>
+            <a data-i18n="ctab" href="#contact" class="inline-block bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition duration-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700">
+                Demander un devis
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-10 px-6">
+                    <h2 data-i18n="cst" class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 dark:text-white">Contactez-nous</h2>
+                    <p data-i18n="csp" class="text-gray-600 mb-8 text-lg dark:text-gray-300">
+                        Vous avez des questions ou souhaitez discuter de votre projet? Remplissez le formulaire ou contactez-nous directement.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-gray-600 mt-1 mr-4 dark:text-gray-300">
+                                <i class="fas fa-phone-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="cst2" class="font-bold text-gray-800 dark:text-white">Téléphone</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+243(0)971379450</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-gray-600 mt-1 mr-4 dark:text-gray-300">
+                                <i class="fas fa-envelope text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 data-i18n="cst3" class="font-bold text-gray-800 dark:text-white">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">contact@novaweb-solutions.cd</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-xl shadow-lg dark:bg-gray-800">
+                        <div class="mb-6">
+                            <label data-i18n="csi1" for="name" class="block text-gray-700 font-medium mb-2 dark:text-gray-300">Nom complet</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="John D." required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label data-i18n="csi2" for="email" class="block text-gray-700 font-medium mb-2 dark:text-gray-300">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Johnd@gmail.com" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label data-i18n="csi3" for="subject" class="block text-gray-700 font-medium mb-2 dark:text-gray-300">Sujet</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Objet de votre message" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label data-i18n="csi4" for="message" class="block text-gray-700 font-medium mb-2 dark:text-gray-300">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="message" required></textarea>
+                        </div>
+                        
+                        <button data-i18n="csb" type="submit" class="w-full bg-gray-600 text-white py-3 rounded-lg font-medium hover:bg-gray-700 transition duration-300 dark:bg-gray-700 dark:hover:bg-gray-600">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0 md:mr-8">
+                    <a href="#" class="text-2xl font-bold text-white">Nova<span class="text-gray-400">Web</span></a>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" title="Facebook">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" title="Twitter">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" title="LinkedIn">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300" title="LinkedIn">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-6">
+                    <div>
+                        <h4 data-i18n="foott1" class="text-lg font-semibold mb-4">Liens rapides</h4>
+                        <ul class="space-y-2">
+                            <li><a data-i18n="home" href="#accueil" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                            <li><a data-i18n="services" href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                            <li><a data-i18n="tarifs" href="#tarifs" class="text-gray-400 hover:text-white transition duration-300">Tarifs</a></li>
+                            <li><a data-i18n="portfolio" href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+                            <li><a data-i18n="contact" href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 data-i18n="foott2" class="text-lg font-semibold mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li><a data-i18n="footb1" href="#" class="text-gray-400 hover:text-white transition duration-300">Sites vitrine</a></li>
+                            <li><a data-i18n="footb2" href="#" class="text-gray-400 hover:text-white transition duration-300">E-commerce</a></li>
+                            <li><a data-i18n="footb3" href="#" class="text-gray-400 hover:text-white transition duration-300">SEO</a></li>
+                            <li><a data-i18n="footb4" href="#" class="text-gray-400 hover:text-white transition duration-300">Maintenance</a></li>
+                            <li><a data-i18n="footb5" href="#" class="text-gray-400 hover:text-white transition duration-300">Hébergement</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 data-i18n="foott3" class="text-lg font-semibold mb-4">Légal</h4>
+                        <ul class="space-y-2">
+                            <li data-i18n="footb6"><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mentions légales</a></li>
+                            <li><a data-i18n="footb7" href="#" class="text-gray-400 hover:text-white transition duration-300">Politique de confidentialité</a></li>
+                            <li><a data-i18n="footb8" href="#" class="text-gray-400 hover:text-white transition duration-300">Conditions générales</a></li>
+                            <li><a data-i18n="footb9" href="#" class="text-gray-400 hover:text-white transition duration-300">Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p data-i18n="copy" class="text-gray-400 text-sm mb-4 md:mb-0 text-center">
+                    © 2025 NovaWeb Solutions. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="fixed bottom-6 w-12 h-12 text-center right-6 bg-gray-600 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition duration-300 dark:bg-gray-700 dark:hover:bg-gray-600" id="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        const resources = {
+            fr: {
+                translation: {
+                    // Hero Section
+                    "hero_t": "Réussissez votre <span class='text-white'>transformation digitale</span>",
+                    "hero_p": "Des solutions digitales conçues sur mesure pour propulser votre entreprise",
+                    "hero_b1": "Demander un devis",
+                    "hero_b2": "Nos services",
+
+                    // Features
+                    "ft": "Nos Solutions Web",
+                    "ft2": "Conception de Site Web",
+                    "fp1": "Création de sites web modernes, responsives et optimisés pour tous les appareils.",
+                    "ft3": "Livraison Rapide",
+                    "fp2": "Sites web livrés à partir de 3 jours, sans compromis sur la qualité.",
+                    "ft4": "Tarifs Accessibles", 
+                    "fp3": "Des solutions professionnelles à partir de $299 seulement.",
+
+                    // Pricing
+                    "pt": "Nos Tarifs",
+                    "pp1": "Des solutions adaptées à tous les budgets pour votre présence en ligne",
+                    "pt2": "Starter",
+                    "pp2": "Parfait pour les petites entreprises",
+                    "pp3": "/projet",
+                    "pp4": "Site vitrine 3 pages",
+                    "pp5": "Design responsive",
+                    "pp6": "Optimisation SEO de base",
+                    "ppb": "Choisir ce plan",
+                    "pp7": "Le plus populaire",
+                    "pt3": "Business",
+                    "pp8": "Idéal pour les entreprises en croissance",
+                    "pp9": "Site vitrine 3+ pages",
+                    "pp10": "Design personnalisé",
+                    "pp11": "SEO avancé",
+                    "pp12": "Formulaire de contact",
+                    "pp13": "Traduction en 1 langue",
+                    "pt4": "Premium",
+                    "pp14": "Solution complète sur mesure",
+                    "pp15": "Site web complet",
+                    "pp16": "Design haut de gamme",
+                    "pp17": "SEO expert",
+                    "pp18": "Fonctionnalités sur mesure",
+                    "pp19": "Traductions personnalisées",
+                    "pp20": "Besoin d'une solution personnalisée? Contactez-nous pour un devis gratuit.",
+
+                    // Portfolio
+                    "pst": "Nos Réalisations",
+                    "psp": "Découvrez quelques-uns de nos projets récents",
+
+                    // Testimonials
+                    "tst": "Témoignages Clients",
+                    "tsp1": "NovaWeb a créé un site magnifique pour mon entreprise en seulement 7 jours. Le résultat a dépassé mes attentes.",
+                    "tsp2": "Directrice Marketing",
+                    "tsp3": "Leur équipe a été incroyablement professionnelle et a livré un site perfaitement adapté à mon activité.",
+                    "tsp4": "Entrepreneur",
+                    "tsp5": "Je recommande NovaWeb à tous ceux qui cherchent un site web professionnel rapidement.",
+                    "tsp6": "Artiste indépendante",
+
+                    // CTA
+                    "ctat": "Prêt à démarrer votre projet?",
+                    "ctap": "Contactez-nous dès aujourd'hui pour discuter de votre projet.",
+                    "ctab": "Demander un devis",
+
+                    // Contact
+                    "cst": "Contactez-nous",
+                    "csp": "Vous avez des questions? Remplissez le formulaire ou contactez-nous directement.",
+                    "cst2": "Téléphone",
+                    "cst3": "Email",
+                    "csi1": "Nom complet",
+                    "csi2": "Email",
+                    "csi3": "Sujet",
+                    "csi4": "Message",
+                    "csb": "Envoyer le message",
+
+                    // Footer
+                    "foott1": "Liens rapides",
+                    "foott2": "Services",
+                    "foott3": "Légal",
+                    "home": "Accueil",
+                    "services": "Services", 
+                    "tarifs": "Tarifs",
+                    "portfolio": "Portfolio",
+                    "contact": "Contact",
+                    "footb1": "Sites vitrine",
+                    "footb2": "E-commerce",
+                    "footb3": "SEO",
+                    "footb4": "Maintenance",
+                    "footb5": "Hébergement",
+                    "footb6": "Mentions légales",
+                    "footb7": "Politique de confidentialité",
+                    "footb8": "Conditions générales",
+                    "footb9": "Cookies",
+                    "copy": "© 2025 NovaWeb Solutions. Tous droits réservés."
+                }
+            },
+            en: {
+                translation: {
+                    // Hero Section
+                    "hero_t": "Achieve your <span class='text-white'>digital transformation</span>",
+                    "hero_p": "Custom digital solutions designed to boost your business",
+                    "hero_b1": "Get a quote",
+                    "hero_b2": "Our services",
+
+                    // Features
+                    "ft": "Our Web Solutions",
+                    "ft2": "Web Design",
+                    "fp1": "Creation of modern, responsive websites optimized for all devices.",
+                    "ft3": "Fast Delivery",
+                    "fp2": "Websites delivered in as little as 3 days, without compromising quality.",
+                    "ft4": "Affordable Prices",
+                    "fp3": "Professional solutions starting at just $299.",
+
+                    // Pricing
+                    "pt": "Our Pricing",
+                    "pp1": "Solutions adapted to all budgets for your online presence",
+                    "pt2": "Starter",
+                    "pp2": "Perfect for small businesses",
+                    "pp3": "/project",
+                    "pp4": "3-page showcase website",
+                    "pp5": "Responsive design",
+                    "pp6": "Basic SEO optimization",
+                    "ppb": "Choose this plan",
+                    "pp7": "Most Popular",
+                    "pt3": "Business",
+                    "pp8": "Ideal for growing businesses",
+                    "pp9": "3+ page showcase website",
+                    "pp10": "Custom design",
+                    "pp11": "Advanced SEO",
+                    "pp12": "Contact form",
+                    "pp13": "Translation in 1 language",
+                    "pt4": "Premium",
+                    "pp14": "Complete custom solution",
+                    "pp15": "Complete website",
+                    "pp16": "High-end design",
+                    "pp17": "Expert SEO",
+                    "pp18": "Custom features",
+                    "pp19": "Custom translations",
+                    "pp20": "Need a custom solution? Contact us for a free quote.",
+
+                    // Portfolio
+                    "pst": "Our Projects",
+                    "psp": "Discover some of our recent work",
+
+                    // Testimonials
+                    "tst": "Client Testimonials",
+                    "tsp1": "NovaWeb created a beautiful website for my business in just 7 days. The result exceeded my expectations.",
+                    "tsp2": "Marketing Director",
+                    "tsp3": "Their team was incredibly professional and delivered a site perfectly suited to my business.",
+                    "tsp4": "Entrepreneur",
+                    "tsp5": "I recommend NovaWeb to anyone looking for a professional website quickly.",
+                    "tsp6": "Independent Artist",
+
+                    // CTA
+                    "ctat": "Ready to start your project?",
+                    "ctap": "Contact us today to discuss your project.",
+                    "ctab": "Get a quote",
+
+                    // Contact
+                    "cst": "Contact Us",
+                    "csp": "Have questions? Fill out the form or contact us directly.",
+                    "cst2": "Phone",
+                    "cst3": "Email",
+                    "csi1": "Full Name",
+                    "csi2": "Email",
+                    "csi3": "Subject",
+                    "csi4": "Message",
+                    "csb": "Send Message",
+
+                    // Footer
+                    "foott1": "Quick Links",
+                    "foott2": "Services",
+                    "foott3": "Legal",
+                    "home": "Home",
+                    "services": "Services",
+                    "tarifs": "Pricing",
+                    "portfolio": "Portfolio",
+                    "contact": "Contact",
+                    "footb1": "Showcase websites",
+                    "footb2": "E-commerce",
+                    "footb3": "SEO",
+                    "footb4": "Maintenance",
+                    "footb5": "Hosting",
+                    "footb6": "Legal Notice",
+                    "footb7": "Privacy Policy",
+                    "footb8": "Terms of Service",
+                    "footb9": "Cookies",
+                    "copy": "© 2025 NovaWeb Solutions. All rights reserved."
+                }
+            },
+            es: {
+                translation: {
+                    // Hero Section
+                    "hero_t": "Logra tu <span class='text-white'>transformación digital</span>",
+                    "hero_p": "Soluciones digitales personalizadas para impulsar tu negocio",
+                    "hero_b1": "Obtener presupuesto",
+                    "hero_b2": "Nuestros servicios",
+
+                    // Features
+                    "ft": "Nuestras Soluciones Web",
+                    "ft2": "Diseño Web",
+                    "fp1": "Creación de sitios web modernos, responsivos y optimizados para todos los dispositivos.",
+                    "ft3": "Entrega Rápida",
+                    "fp2": "Sitios web entregados en tan solo 3 días, sin comprometer la calidad.",
+                    "ft4": "Precios Accesibles",
+                    "fp3": "Soluciones profesionales desde $299.",
+
+                    // Pricing
+                    "pt": "Nuestros Precios",
+                    "pp1": "Soluciones adaptadas a todos los presupuestos para tu presencia en línea",
+                    "pt2": "Básico",
+                    "pp2": "Perfecto para pequeñas empresas",
+                    "pp3": "/proyecto",
+                    "pp4": "Sitio vitrina de 3 páginas",
+                    "pp5": "Diseño responsive",
+                    "pp6": "Optimización SEO básica",
+                    "ppb": "Elegir este plan",
+                    "pp7": "Más Popular",
+                    "pt3": "Empresarial",
+                    "pp8": "Ideal para empresas en crecimiento",
+                    "pp9": "Sitio vitrina de 3+ páginas",
+                    "pp10": "Diseño personalizado",
+                    "pp11": "SEO avanzado",
+                    "pp12": "Formulario de contacto",
+                    "pp13": "Traducción en 1 idioma",
+                    "pt4": "Premium",
+                    "pp14": "Solución personalizada completa",
+                    "pp15": "Sitio web completo",
+                    "pp16": "Diseño de alta gama",
+                    "pp17": "SEO experto",
+                    "pp18": "Funcionalidades personalizadas",
+                    "pp19": "Traducciones personalizadas",
+                    "pp20": "¿Necesitas una solución personalizada? Contáctanos para un presupuesto gratuito.",
+
+                    // Portfolio
+                    "pst": "Nuestros Proyectos",
+                    "psp": "Descubre algunos de nuestros trabajos recientes",
+
+                    // Testimonials
+                    "tst": "Testimonios de Clientes",
+                    "tsp1": "NovaWeb creó un sitio web hermoso para mi negocio en solo 7 días. El resultado superó mis expectativas.",
+                    "tsp2": "Directora de Marketing",
+                    "tsp3": "Su equipo fue increíblemente profesional y entregó un sitio perfectamente adaptado a mi negocio.",
+                    "tsp4": "Emprendedor",
+                    "tsp5": "Recomiendo NovaWeb a cualquiera que busque un sitio web profesional rápidamente.",
+                    "tsp6": "Artista Independiente",
+
+                    // CTA
+                    "ctat": "¿Listo para comenzar tu proyecto?",
+                    "ctap": "Contáctanos hoy para discutir tu proyecto.",
+                    "ctab": "Obtener presupuesto",
+
+                    // Contact
+                    "cst": "Contáctanos",
+                    "csp": "¿Tienes preguntas? Completa el formulario o contáctanos directamente.",
+                    "cst2": "Teléfono",
+                    "cst3": "Correo electrónico",
+                    "csi1": "Nombre completo",
+                    "csi2": "Correo electrónico",
+                    "csi3": "Asunto",
+                    "csi4": "Mensaje",
+                    "csb": "Enviar mensaje",
+
+                    // Footer
+                    "foott1": "Enlaces rápidos",
+                    "foott2": "Servicios",
+                    "foott3": "Legal",
+                    "home": "Inicio",
+                    "services": "Servicios",
+                    "tarifs": "Precios",
+                    "portfolio": "Portafolio",
+                    "contact": "Contacto",
+                    "footb1": "Sitios vitrina",
+                    "footb2": "E-commerce",
+                    "footb3": "SEO",
+                    "footb4": "Mantenimiento",
+                    "footb5": "Alojamiento",
+                    "footb6": "Aviso Legal",
+                    "footb7": "Política de Privacidad",
+                    "footb8": "Términos de Servicio",
+                    "footb9": "Cookies",
+                    "copy": "© 2025 NovaWeb Solutions. Todos los derechos reservados."
+                }
+            },
+            pt: {
+                translation: {
+                    // Hero Section
+                    "hero_t": "Alcance sua <span class='text-white'>transformação digital</span>",
+                    "hero_p": "Soluções digitais personalizadas para impulsionar seu negócio",
+                    "hero_b1": "Solicitar orçamento",
+                    "hero_b2": "Nossos serviços",
+
+                    // Features
+                    "ft": "Nossas Soluções Web",
+                    "ft2": "Design de Website",
+                    "fp1": "Criação de sites modernos, responsivos e otimizados para todos os dispositivos.",
+                    "ft3": "Entrega Rápida",
+                    "fp2": "Sites entregues em apenas 3 dias, sem comprometer a qualidade.",
+                    "ft4": "Preços Acessíveis", 
+                    "fp3": "Soluções profissionais a partir de $299.",
+
+                    // Pricing
+                    "pt": "Nossos Preços",
+                    "pp1": "Soluções adaptadas a todos os orçamentos para sua presença online",
+                    "pt2": "Starter",
+                    "pp2": "Perfeito para pequenos negócios",
+                    "pp3": "/projeto",
+                    "pp4": "Site institucional 3 páginas",
+                    "pp5": "Design responsivo",
+                    "pp6": "Otimização SEO básica",
+                    "ppb": "Escolher este plano",
+                    "pp7": "Mais Popular",
+                    "pt3": "Business",
+                    "pp8": "Ideal para empresas em crescimento",
+                    "pp9": "Site institucional 3+ páginas",
+                    "pp10": "Design personalizado",
+                    "pp11": "SEO avançado",
+                    "pp12": "Formulário de contato",
+                    "pp13": "Tradução em 1 idioma",
+                    "pt4": "Premium",
+                    "pp14": "Solução completa personalizada",
+                    "pp15": "Site completo",
+                    "pp16": "Design premium",
+                    "pp17": "SEO especializado",
+                    "pp18": "Funcionalidades personalizadas",
+                    "pp19": "Traduções personalizadas",
+                    "pp20": "Precisa de uma solução personalizada? Contate-nos para um orçamento gratuito.",
+
+                    // Portfolio
+                    "pst": "Nossos Projetos",
+                    "psp": "Conheça alguns dos nossos trabalhos recentes",
+
+                    // Testimonials
+                    "tst": "Depoimentos de Clientes",
+                    "tsp1": "A NovaWeb criou um site lindo para minha empresa em apenas 7 dias. O resultado superou minhas expectativas.",
+                    "tsp2": "Diretora de Marketing",
+                    "tsp3": "A equipe foi incrivelmente profissional e entregou um site perfeitamente adaptado ao meu negócio.",
+                    "tsp4": "Empreendedor",
+                    "tsp5": "Recomendo a NovaWeb para quem busca um site profissional rapidamente.",
+                    "tsp6": "Artista Independente",
+
+                    // CTA
+                    "ctat": "Pronto para começar seu projeto?",
+                    "ctap": "Entre em contato hoje mesmo para discutir seu projeto.",
+                    "ctab": "Solicitar orçamento",
+
+                    // Contact
+                    "cst": "Contate-nos",
+                    "csp": "Tem dúvidas? Preencha o formulário ou entre em contato diretamente.",
+                    "cst2": "Telefone",
+                    "cst3": "Email",
+                    "csi1": "Nome completo",
+                    "csi2": "Email",
+                    "csi3": "Assunto",
+                    "csi4": "Mensagem",
+                    "csb": "Enviar mensagem",
+
+                    // Footer
+                    "foott1": "Links rápidos",
+                    "foott2": "Serviços",
+                    "foott3": "Legal",
+                    "home": "Início",
+                    "services": "Serviços",
+                    "tarifs": "Preços",
+                    "portfolio": "Portfólio",
+                    "contact": "Contato",
+                    "footb1": "Sites institucionais",
+                    "footb2": "E-commerce",
+                    "footb3": "SEO",
+                    "footb4": "Manutenção",
+                    "footb5": "Hospedagem",
+                    "footb6": "Aviso Legal",
+                    "footb7": "Política de Privacidade",
+                    "footb8": "Termos de Serviço",
+                    "footb9": "Cookies",
+                    "copy": "© 2025 NovaWeb Solutions. Todos os direitos reservados."
+                }
+            }
+        };
+
+        // Fonctions globales
+        function changeLanguage(lng) {
+            i18next.changeLanguage(lng);
+        }
+
+        function updateLanguageSelector() {
+            document.querySelectorAll('select[onchange="changeLanguage(this.value)"]').forEach(select => {
+                select.value = i18next.language;
+            });
+        }
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerHTML = i18next.t(key);
+            });
+        }
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        }
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+            document.getElementById('toggle').checked = true;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            });
+
+            // Dark mode toggle event
+            document.getElementById('toggle').addEventListener('change', toggleDarkMode);
+
+            // Initialize Splide slider
+            new Splide('#splide', {
+                type: 'loop',
+                perPage: 2,
+                gap: '4rem',
+                arrows: false,
+                pagination: false,
+                autoplay: true,
+                interval: 0,
+                speed: 10000,
+                easing: 'linear',
+                drag: false,
+            }).mount();
+
+            // Initialize i18next
+            i18next
+            .use(i18nextBrowserLanguageDetector)
+            .init({
+                resources,
+                fallbackLng: 'fr',
+                debug: false,
+                interpolation: { escapeValue: false }
+            }).then(() => {
+                // Initial updates
+                updateContent();
+                updateLanguageSelector();
+                // Écouteur pour les changements futurs
+                i18next.on('languageChanged', () => {
+                    updateContent();
+                    updateLanguageSelector();
+                });
+            });
+
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+        }); 
+    </script>
+</body>
+</html>
